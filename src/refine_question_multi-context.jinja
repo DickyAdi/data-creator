@@ -1,0 +1,15 @@
+Tulis ulang pertanyaan dibawah ini agar jawabannya memerlukan penggabungan beberapa konsep hukum berbeda.
+pertanyaan: {{original_input}}
+
+Aturan:
+- Pertanyaan harus integratif (menghubungkan 2 konsep atau lebih)
+- Maksimal 15 kata
+- Bahasa natural dan langsung
+- HANYA output pertanyaan, tanpa penjelasan apapun
+
+Konteks:
+{% for context in contexts %}
+---
+{{context}}
+---
+{% endfor %}

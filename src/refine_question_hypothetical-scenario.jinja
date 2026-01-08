@@ -1,0 +1,15 @@
+Buat skenario aplikatif atau "bagaimana jika" dari pertanyaan dibawah ini.
+pertanyaan: {{original_input}}
+
+Aturan:
+- Buat situasi yang menguji penerapan Aturan
+- Maksimal 15 kata
+- Bahasa natural
+- HANYA output pertanyaan, tanpa penjelasan
+
+Konteks:
+{% for context in contexts %}
+---
+{{context}}
+---
+{% endfor %}

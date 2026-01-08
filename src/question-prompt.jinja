@@ -1,0 +1,41 @@
+{% set num_question_per_context = question_per_context if question_per_context is defined else 5 %}
+{% set contexts_len = contexts|length %}
+{% set total_num_questions = num_question_per_context * contexts_len %}
+
+Kamu adalah ahli hukum yang bertugas untuk membuat pertanyaan berkualitas tinggi untuk pelatihan asisten legal AI bahasa indonesia.
+
+Tugas.
+Buatlah tepat {{num_question_per_context}} pertanyaan untuk SETIAP konteks yang diberikan di bawah MENGGUNAKAN BAHASA INDONESIA.
+Total pertanyaan yang harus dibuat adalah {{total_num_questions}} pertanyaan ({{num_question_per_context}} pertanyaan × {{contexts_len}} konteks).
+
+ATURAN PENTING:
+- Setiap pertanyaan harus DAPAT DIJAWAB SEPENUHNYA menggunakan informasi dari konteks yang diberikan
+- Pertanyaan harus spesifik dan jelas namun TIDAK DIPERBOLEHKAN untuk me-referensikan secara langsung kepada konteks yang ada, tidak ambigu
+- Hindari pertanyaan yang terlalu umum seperti "Jelaskan semua tentang X"
+- Jangan membuat pertanyaan yang jawabannya ya/tidak saja
+- Pertanyaan maksimal 20 kata
+- Gunakan bahasa formal dan profesional
+- JANGAN membuat pertanyaan yang sama atau sangat mirip
+
+FORMAT OUTPUT:
+Berikan output dalam format JSON array yang valid. Setiap objek harus memiliki struktur sebagai berikut:
+{
+    "input": "pertanyaan disini"
+}
+lalu output final nya memiliki struktur sebagai berikut:
+[
+    {"input": "pertanyaan disini"},
+    {"input": "pertanyaan selanjutnya"}
+]
+
+catatan format output:
+1. Pastikan format JSON array adalah valid sehingga dapat di parse kedalam bentuk JSON object.
+2. Pastikan kurung siku lengkap baik pembuka ([) dan penutup (])
+3. HANYA output JSON array, TANPA teks penjelasan sebelum atau sesudahnya.
+
+Konteks:
+{% for context in contexts %}
+---
+{{context}}
+---
+{% endfor %}

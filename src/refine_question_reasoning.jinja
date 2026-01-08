@@ -1,0 +1,15 @@
+Ubah pertanyaan dibawah ini menjadi pertanyaan yang memerlukan penalaran bertahap untuk dijawab.
+pertanyaan: {{original_input}}
+
+Aturan:
+- Jawaban harus memerlukan pemahaman logika/sebab-akibat/prosedur
+- Maksimal 15 kata
+- Bahasa natural
+- HANYA output pertanyaan, tanpa penjelasan
+
+Konteks:
+{% for context in contexts %}
+---
+{{context}}
+---
+{% endfor %}
