@@ -51,7 +51,7 @@ python -m src.main \
 ### Full Options
 
 ```bash
-python app.py \
+python -m src.main \
   --file <path-to-pdf> \
   --generator_model <model-name> \
   --base_url_generator <api-endpoint> \
