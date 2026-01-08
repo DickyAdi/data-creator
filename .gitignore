@@ -233,3 +233,8 @@ wheels/
 *.txt
 *.docx
 *.doc
+__MACOSX/
+.Trashes
+.Spotlight-V100
+._*
+.DS_Store
